@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table table-stiped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Fecha Nac</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for estudiante in estudiantes %}
+        <tr>
+            <td>{{ estudiante.id }}</td>
+            <td>{{ estudiante.nombre }}</td>
+            <td>{{ estudiante.apellidos }}</td>
+            <td>{{ estudiante.fecha_nacimiento }}</td>
+            <td></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}
+
