@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% extends "baseins.html" %}
+
 <h1>Inscripciones</h1>
-<a href="{{ url_for('nueva_inscripcion') }}" class="btn btn-success mb-2">Nuevo</a>
-<table class="table table-stiped table-hover">
+<a href="{{ url_for('nueva_inscripcion') }}" class="btn btn-success mb-2">Nueva inscripción</a>
+<table class="table table-striped table-hover">
     <thead class="table-dark">
         <tr>
+            
             <th>Id</th>
             <th>Fecha</th>
             <th>Estudiante</th>
@@ -21,12 +23,12 @@
             <td>{{ item.estudiante }}</td>
             <td>{{ item.curso }}</td>
             <td>
-                <a href="{{ url_for('eliminar_inscripcion' ,id=item.id) }}"  class="btn btn-danger"
-                onclick="return(confirm('Esta seguro ??'))">Eliminar</a>
+                <a href="{{ url_for('editar_inscripcion', id=item.id) }}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="{{ url_for('eliminar_inscripcion', id=item.id) }}" class="btn btn-danger btn-sm"
+                   onclick="return confirm('¿Está seguro de eliminar esta inscripción?')">Eliminar</a>
             </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
-
 {% endblock %}
